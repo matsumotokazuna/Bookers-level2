@@ -17,8 +17,6 @@
         <%= f.submit 'Create Book' %>
     <% end %>
 
-<h2>Books</h2>
-    <% @books.each do |book| %>
-        <%= book.title %>
-        <%= book.body%>
-     <% end %>
+<h2>Book detail</h2>
+    <%= @post_book.title %>
+    <%= @post_book.body %>
