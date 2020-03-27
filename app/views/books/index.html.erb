@@ -23,6 +23,9 @@
         <%= f.submit 'Create Book' %>
     <% end %>
 
-<h2>Book detail</h2>
-    <%= @post_book.title %>
-    <%= @post_book.body %>
+<h2>Books</h2>
+    <%# <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+    <% @books.each do |book| %>
+        <%=link_to "#{book.title}",book_path(book.id) %>
+        <%= book.body %>
+     <% end %>
