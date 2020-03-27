@@ -1,3 +1,6 @@
+<div class="container">
+<div class="row">
+<div class= "col-lg-4">
 <% 
 =begin
 %>
@@ -22,10 +25,24 @@
 
         <%= f.submit 'Create Book' %>
     <% end %>
+</div>
 
+<div class= "col-lg-8">
 <h2>Users</h2>
-    <%# <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+    <table>
+    <tr>
+        <td>image</td>
+        <td>name</td>
+        <td></td>
+    </tr>
     <% @users.each do |user| %>
-        <%= user.name %>
-        <%=link_to "Show",user_path(user.id) %> 
-     <% end %>
+    <tr>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
+        <td><%= user.name %></td>
+        <td><%=link_to "Show",user_path(user.id) %></td>
+    </tr>
+    <% end %>
+    </table>
+</div>
+</div>
+</div>

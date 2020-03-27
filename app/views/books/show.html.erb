@@ -1,3 +1,6 @@
+<div class="container">
+<div class="row">
+<div class= "col-lg-4">
 <% 
 =begin
 %>
@@ -22,7 +25,19 @@
 
         <%= f.submit 'Create Book' %>
     <% end %>
+</div>
 
+<div class= "col-lg-8">
 <h2>Book detail</h2>
-    <%= @post_book.title %>
-    <%= @post_book.body %>
+    <table>
+    <tr>
+        <td></td>
+        <td><%= link_to "#{@post_book.title}", book_path(@post_book.id)  %></td>
+        <td><%= @post_book.body %></td>
+        <td>Edit</td>
+        <td>Destroy</td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>
