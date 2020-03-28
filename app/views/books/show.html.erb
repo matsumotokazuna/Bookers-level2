@@ -30,7 +30,10 @@
 <h2>Book detail</h2>
     <table>
     <tr>
-        <td></td>
+        <td>
+            <%= attachment_image_tag @post_book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %>
+            <%= link_to "#{@post_book.user.name}", user_path(@post_book.user.id) %>
+        </td>
         <td><%= link_to "#{@post_book.title}", book_path(@post_book.id)  %></td>
         <td><%= @post_book.body %></td>
         <% if @post_book.user_id == current_user.id %>
