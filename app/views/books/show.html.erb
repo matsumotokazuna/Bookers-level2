@@ -1,19 +1,18 @@
 <div class="container">
 <div class="row">
 <div class= "col-lg-4">
-<% 
-=begin
-%>
 <h2>User info</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-    <h4>name<h4>
-    <%= @user.name %>
-
-    <h4>introduction</h4>
-    <%= @user.introduction %>
-<%
-=end
-%>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
+    <table>
+    <tr>
+        <td>name</td>
+        <td><%= @user.name %></td>
+    </tr>
+    <tr>
+        <td>introduction</td>
+        <td><%= @user.introduction %></td>
+    </tr>
+    </table>
 
 <h2>New book</h2>
     <%= form_for(@book, url:books_path) do |f| %>
@@ -34,8 +33,10 @@
         <td></td>
         <td><%= link_to "#{@post_book.title}", book_path(@post_book.id)  %></td>
         <td><%= @post_book.body %></td>
+        <% if @post_book.user_id == current_user.id %>
         <td><%= link_to 'Edit', edit_book_path(@post_book.id) %></td>
         <td><%= link_to 'Destroy', book_path(@post_book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        <% end %>
     </tr>
     </table>
 </div>

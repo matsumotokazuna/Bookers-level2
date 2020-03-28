@@ -13,11 +13,13 @@
         <td><%= @user.introduction %></td>
     </tr>
     </table>
-    <%= button_to "setthing", {controller: 'users', action: 'edit'}, {method: :get} %>
-    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <% if @user.id == current_user.id %>
+        <%= button_to "setthing", {controller: 'users', action: 'edit'}, {method: :get} %>
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+    <% end %>
 
 <h2>New book</h2>
-    <%= form_for(@book, url:books_path) do |f| %>
+    <%= form_for(@book, url:books_path(@book.id)) do |f| %>
         <h4>Title</h4>
         <%= f.text_field :title %>
 
@@ -32,14 +34,18 @@
 <h2>Books</h2>
     <table>
     <tr>
+        <td></td>
         <td>Title</td>
         <td>Opinion</td>
     <tr>
     <% @books.each do |book| %>
-    <tr>
-        <td><%= book.title %></td>
-        <td><%= book.body%></td>
-    </tr>
+        <% if book.user_id == @user.id %>
+        <tr>
+            <td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:'50x50' %></td>
+            <td><%= book.title %></td>
+            <td><%= book.body%></td>
+        </tr>
+        <% end %>
      <% end %>
     </table>
 </div>
