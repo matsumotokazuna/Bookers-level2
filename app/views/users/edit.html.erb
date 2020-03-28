@@ -6,7 +6,7 @@
     <%= f.text_field :name %>
 
     <h4>Image</h4>
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 120, 120, fallback: "no_image.jpg", size:'120x120' %>
     <%= f.attachment_field :profile_image, placeholder: "画像" %>
 
     <h4>Introduction</h4>
