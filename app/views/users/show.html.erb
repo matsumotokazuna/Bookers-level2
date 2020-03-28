@@ -2,12 +2,19 @@
 <div class="row">
 <div class= "col-lg-4">
 <h2>User info</h2>
-    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-    <h4>name<h4>
-    <%= @user.name %>
-
-    <h4>introduction</h4>
-    <%= @user.introduction %>
+    <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'100x100' %>
+    <table>
+    <tr>
+        <td>name</td>
+        <td><%= @user.name %></td>
+    </tr>
+    <tr>
+        <td>introduction</td>
+        <td><%= @user.introduction %></td>
+    </tr>
+    </table>
+    <%= button_to "setthing", {controller: 'users', action: 'edit'}, {method: :get} %>
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
 
 <h2>New book</h2>
     <%= form_for(@book, url:books_path) do |f| %>
