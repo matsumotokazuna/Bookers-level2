@@ -34,7 +34,7 @@
         <td></td>
         <td><%= link_to "#{@post_book.title}", book_path(@post_book.id)  %></td>
         <td><%= @post_book.body %></td>
-        <td>Edit</td>
+        <td><%= link_to "Edit", edit_book_path(@post_book.id) %></td>
         <td>Destroy</td>
     </tr>
     </table>
