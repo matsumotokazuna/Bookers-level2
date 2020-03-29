@@ -14,8 +14,7 @@
     </tr>
     </table>
     <% if @user.id == current_user.id %>
-        <%= button_to "setthing", {controller: 'users', action: 'edit'}, {method: :get} %>
-        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+        <%= link_to "", edit_user_path, class: 'btn btn-default glyphicon glyphicon-wrench' %>
     <% end %>
 
 <h2>New book</h2>
