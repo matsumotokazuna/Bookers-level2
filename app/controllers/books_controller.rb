@@ -8,14 +8,14 @@ class BooksController < ApplicationController
             flash[:notice] = "You have creatad book successfully."
             redirect_to book_path(@book.id)
         else
-            render action: :show
+            @books = Book.all
+            render "index"
         end
     end
 
     def show
-        @user = current_user
         @book = Book.new
-        @post_book = Book.includes(:user).find(params[:id])
+        @post_book = Book.find(params[:id])
     end
 
     def index
@@ -38,7 +38,7 @@ class BooksController < ApplicationController
             flash[:notice] = "You have updated book successfully." 
             redirect_to book_path(@book.id)
         else
-            render action: :edit
+            render "edit"
         end
     end
 
